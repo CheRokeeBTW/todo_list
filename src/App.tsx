@@ -27,6 +27,10 @@ function App() {
   const [showCompleted, setShowCompleted] = useState(false);
   const [listCompleted, setListCompleted] = useState<TodoItem[]>(list);
   const [listUncompleted, setListUncompleted] = useState<TodoItem[]>(list);
+
+  useEffect(() => {
+    document.title = 'todos';
+  }, []);
   
   useEffect(() => {
     sessionStorage.setItem('showTasks', JSON.stringify(list));
@@ -104,6 +108,7 @@ function App() {
       </div>
       <div className = "list">
         <input
+        id = "result"
         type ="text"
         value = {task}
         placeholder='What needs to be done?'
